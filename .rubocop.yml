@@ -1,0 +1,67 @@
+plugins:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.2.0
+  NewCops: enable
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+
+# Style
+Layout/LineLength:
+  Max: 120
+  AllowHeredoc: true
+  AllowURI: true
+  IgnoreCopDirectives: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Metrics
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/routes.rb'
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+# Rails
+Rails:
+  Enabled: true
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+Rails/TimeZone:
+  Enabled: true
+
+# RSpec
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/**/*'
+    - 'spec/system/**/*'
+
+RSpec/MultipleExpectations:
+  Max: 5

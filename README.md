@@ -1,25 +1,50 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Rails Application - Docker Setup Guide
 
-Things you may want to cover:
+## 🧰 Prerequisites
 
-* Ruby version
+- Docker
+- Docker Compose
 
-* System dependencies
+## 🚀 Quick Start
 
-* Configuration
+1. **Build and start the containers:**
 
-* Database creation
+   ```bash
+   docker-compose build
+   docker-compose up -d
+   ```
 
-* Database initialization
+2. **Set up the database:**
 
-* How to run the test suite
+   ```bash
+   docker-compose exec app rails db:create
+   docker-compose exec app rails db:migrate
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. **Access the app:**
 
-* Deployment instructions
+   Visit [http://localhost:3000](http://localhost:3000)
 
-* ...
-# training-rails-app
+## 🧪 Running Tests
+
+```bash
+docker-compose exec app bundle exec rspec
+```
+
+## 🛠 Useful Commands
+
+- **Rails console:**
+
+  ```bash
+  docker-compose exec app rails console
+  ```
+
+- **Install new gem:**
+
+  1. Add to `Gemfile`
+  2. Run:
+
+     ```bash
+     docker-compose exec app bundle install
+     ```
