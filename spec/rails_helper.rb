@@ -2,9 +2,10 @@
 require "spec_helper"
 require "shoulda/matchers"
 require "simplecov"
-require "simplecov_helper"
-
-Rails.root.glob("spec/support/**/*.rb/support/**/*.rb").each { |f| require f }
+require "factory_bot_rails"
+require "faker"
+require_relative "support/simplecov_helper"
+require_relative "support/factory_bot"
 
 # Previous content of test helper now starts here
 ENV["RAILS_ENV"] ||= "test"
@@ -83,6 +84,4 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
-  config.include FactoryBot::Syntax::Methods
 end
