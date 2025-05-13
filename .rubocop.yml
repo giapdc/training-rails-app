@@ -65,3 +65,6 @@ RSpec/DescribeClass:
 
 RSpec/MultipleExpectations:
   Max: 5
+
+Lint/UselessMethodDefinition:
+  Enabled: false
