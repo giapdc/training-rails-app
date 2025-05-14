@@ -45,7 +45,10 @@ gem "thruster", require: false
 gem "cancancan"
 gem "devise"
 gem "enumerize"
+gem "jwt"
 gem "money-rails"
+gem "pry-byebug"
+gem "pry-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -73,8 +76,6 @@ group :test do
   gem "factory_bot"
   gem "factory_bot_rails"
   gem "faker"
-  gem "pry-byebug"
-  gem "pry-rails"
   gem "rspec-rails"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 5.3"
