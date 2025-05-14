@@ -34,12 +34,12 @@ module Users
 
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up,
-                                        keys: %i[name birthday gender address role mobile email password])
+                                        keys: %i[name birthday gender address role email password])
     end
 
     def configure_account_update_params
       devise_parameter_sanitizer.permit(:account_update,
-                                        keys: %i[username mobile email address gender password avatar])
+                                        keys: %i[name email address gender])
     end
 
     def after_update_path_for(_resource)

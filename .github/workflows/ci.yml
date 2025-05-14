@@ -96,9 +96,9 @@ jobs:
           name: coverage-report
           path: coverage/
           
-      - name: Check SimpleCov coverage >= 80%
+      - name: Check SimpleCov coverage >= 90%
         if: always()
         uses: joshmfrankel/simplecov-check-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          minimum_suite_coverage: 80
+          minimum_suite_coverage: 90
