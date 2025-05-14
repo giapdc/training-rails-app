@@ -47,6 +47,9 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 
+Lint/UselessMethodDefinition:
+  Enabled: false
+  
 # Rails
 Rails:
   Enabled: true
@@ -66,5 +69,7 @@ RSpec/DescribeClass:
 RSpec/MultipleExpectations:
   Max: 5
 
-Lint/UselessMethodDefinition:
-  Enabled: false
+
+
+RSpec/ExampleLength:
+  Max: 10
