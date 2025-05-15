@@ -37,7 +37,7 @@ RUN bundle install
 RUN bundle exec bootsnap precompile --gemfile ./Gemfile ./app ./lib
 
 # Precompile assets for production, without requiring the secret key
-RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 DEVISE_JWT_SECRET_KEY=dummy bundle exec rails assets:precompile
 
 # Specify the entrypoint script (database setup, etc.)
 ENTRYPOINT ["/app/bin/docker-entrypoint"]

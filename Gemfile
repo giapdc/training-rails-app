@@ -42,8 +42,10 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "active_model_serializers"
 gem "cancancan"
 gem "devise"
+gem "devise-jwt"
 gem "enumerize"
 gem "jwt"
 gem "money-rails"
@@ -76,9 +78,11 @@ group :test do
   gem "factory_bot"
   gem "factory_bot_rails"
   gem "faker"
+  gem "rails-controller-testing"
   gem "rspec-rails"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 5.3"
   gem "simplecov", require: false
   gem "simplecov-console", require: false
 end
+gem "dotenv", groups: %i[development test]
