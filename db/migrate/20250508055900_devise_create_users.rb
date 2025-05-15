@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
         t.date   :birthday, null: true
         t.string :gender
         t.string :address, null: true
-        t.integer :role, default: 0  # Role enum
+        t.string :role, null: false, default: "customers"
   
         ## Database authenticatable
         t.string :email,              null: false, default: ""
