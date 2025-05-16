@@ -3,13 +3,14 @@ module Users
     before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
 
-    def new
-      super
-    end
-
     # POST /resource
     def create
-      super
+      super do |resource|
+        if resource.persisted?
+          Customers::CreateStripeCustomerWorker.perform_async(resource.id)
+          WelcomeEmailJob.perform_later(resource.id)
+        end
+      end
     end
 
     # PUT /resource

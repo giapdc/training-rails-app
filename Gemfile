@@ -51,6 +51,8 @@ gem "jwt"
 gem "money-rails"
 gem "pry-byebug"
 gem "pry-rails"
+gem "sidekiq", "~> 8.0"
+gem "stripe"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -80,6 +82,7 @@ group :test do
   gem "faker"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "rspec-sidekiq"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 5.3"
   gem "simplecov", require: false
