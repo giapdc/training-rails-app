@@ -41,6 +41,16 @@ RSpec.describe Users::RegistrationsController, type: :controller do
         post :create, params: { user: valid_signup_params }
         expect(response).to redirect_to(new_user_session_path)
       end
+
+      it "enqueues WelcomeEmailJob and CreateStripeCustomerWorker" do
+        expect do
+          post :create, params: { user: valid_signup_params }
+        end.to change(User, :count).by(1)
+
+        user = User.last
+        expect(WelcomeEmailJob).to have_been_enqueued.with(user.id)
+        expect(Customers::CreateStripeCustomerWorker).to have_enqueued_sidekiq_job(user.id)
+      end
     end
 
     context "with invalid params" do

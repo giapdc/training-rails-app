@@ -84,4 +84,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+  config.before do
+    ActiveJob::Base.queue_adapter = :test
+  end
 end
