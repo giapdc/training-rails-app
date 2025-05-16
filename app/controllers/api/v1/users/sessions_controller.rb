@@ -2,6 +2,7 @@ module Api
   module V1
     module Users
       class SessionsController < Devise::SessionsController
+        include RackSessionFix
         respond_to :json
         skip_before_action :verify_authenticity_token
         skip_before_action :verify_signed_out_user
